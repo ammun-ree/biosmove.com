@@ -56,7 +56,7 @@ return [
             'driver'    => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', ''),
-            'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
+            //'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
             'database' => env('DB_DATABASE', 'biosmove_cms'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'root'),
