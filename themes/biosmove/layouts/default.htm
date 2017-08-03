@@ -1,0 +1,26 @@
+description = "Default Layout"
+==
+<html>
+
+    <head>
+    <meta charset="utf-8">
+        <title>BiosMove - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Bios Movement">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="Bios Movement">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/favico.png'|theme }}">
+        {% styles %}
+    </head>
+    
+    
+    <body>
+        {% page %}
+    </body>
+
+
+    {% scripts %}
+    {% framework %}
+
+</html>
