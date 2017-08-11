@@ -11,7 +11,7 @@ description = "Default Layout"
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="generator" content="Bios Movement">
         <link rel="icon" type="image/png" href="{{ 'assets/images/favico.png'|theme }}">
-        <link rel="stylesheet" type="text/css" href="{{ ['assets/css/theme.css']|theme }}">
+        <link rel="stylesheet" type="text/css" href="{{ ['assets/css/theme.css','assets/css/grid.css', 'assets/css/slick.css']|theme }}">
     {% styles %}
     </head>
     
@@ -22,6 +22,8 @@ description = "Default Layout"
     </body>
 
 
+    <script type="text/javascript" src="{{ ['assets/javascript/jquery.min.js', 'assets/javascript/slick.js', 'assets/javascript/app.js']|theme }}" />
+   
     {% scripts %}
     {% framework %}
 

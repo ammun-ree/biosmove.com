@@ -1,48 +1,38 @@
-/*
- * Application
- */
+jQuery(document).ready(function($) {
+    /*
+     * Replace all SVG images with inline SVG
+     */
+    $('img.svg').each(function(){
+        var $img = $(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
 
-$(document).tooltip({
-    selector: "[data-toggle=tooltip]"
-})
+        $.get(imgURL, function(data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = $(data).find('svg');
 
-/*
- * Auto hide navbar
- */
-jQuery(document).ready(function($){
-    var $header = $('.navbar-autohide'),
-        scrolling = false,
-        previousTop = 0,
-        currentTop = 0,
-        scrollDelta = 10,
-        scrollOffset = 150
-
-    $(window).on('scroll', function(){
-        if (!scrolling) {
-            scrolling = true
-
-            if (!window.requestAnimationFrame) {
-                setTimeout(autoHideHeader, 250)
+            // Add replaced image's ID to the new SVG
+            if(typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
             }
-            else {
-                requestAnimationFrame(autoHideHeader)
+            // Add replaced image's classes to the new SVG
+            if(typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass+' replaced-svg');
             }
-        }
-    })
 
-    function autoHideHeader() {
-        var currentTop = $(window).scrollTop()
+            // Remove any invalid XML tags as per http://validator.w3.org
+            $svg = $svg.removeAttr('xmlns:a');
 
-        // Scrolling up
-        if (previousTop - currentTop > scrollDelta) {
-            $header.removeClass('is-hidden')
-        }
-        else if (currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
-            // Scrolling down
-            $header.addClass('is-hidden')
-        }
+            // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+            if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+            }
 
-        previousTop = currentTop
-        scrolling = false
-    }
+            // Replace image with new SVG
+            $img.replaceWith($svg);
+
+        }, 'xml');
+
+    });
 });
