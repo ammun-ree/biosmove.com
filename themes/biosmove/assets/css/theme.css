@@ -90,3 +90,6 @@ body {
 svg{
   height: auto;
 }
+[v-cloak] {
+  display: none;
+}

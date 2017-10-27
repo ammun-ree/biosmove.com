@@ -12,18 +12,20 @@ description = "Default Layout"
         <meta name="generator" content="Bios Movement">
         <link rel="icon" type="image/png" href="{{ 'assets/images/favico.png'|theme }}">
         <link rel="stylesheet" type="text/css" href="{{ ['assets/css/theme.css','assets/css/grid.css', 'assets/css/slick.css']|theme }}">
+        <script src="https://unpkg.com/vue"></script>
+
     {% styles %}
     </head>
-    
-    
+
+
     <body>
         {% partial 'sidebar' %}
         {% page %}
     </body>
 
+    <script type="text/javascript" src="{{ ['assets/javascript/jquery.min.js', 'assets/javascript/slick.js', 'assets/javascript/app.js', 'assets/javascript/main.js']|theme }}" />
 
-    <script type="text/javascript" src="{{ ['assets/javascript/jquery.min.js', 'assets/javascript/slick.js', 'assets/javascript/app.js']|theme }}" />
-   
+
     {% scripts %}
     {% framework %}
 

@@ -3,4 +3,17 @@ url = "/"
 layout = "default"
 is_hidden = 0
 ==
-<h1>Bios Move<H1/>
+<h1>Bios Move</h1>
+  <div id="home" v-cloak>
+  ${ message }
+</div>
+<script>
+
+var app = new Vue({
+  delimiters: ['${', '}'],
+  el: '#home',
+  data: {
+    message: 'Hello Bios'
+  }
+})
+</script>

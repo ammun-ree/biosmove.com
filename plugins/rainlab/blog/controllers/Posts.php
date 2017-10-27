@@ -37,7 +37,6 @@ class Posts extends Controller
 
         $this->asExtension('ListController')->index();
     }
-
     public function create()
     {
         BackendMenu::setContextSideMenu('new_post');
